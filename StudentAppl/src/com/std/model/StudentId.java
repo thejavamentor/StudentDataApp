@@ -5,10 +5,10 @@ import java.util.Objects;
 public class StudentId {
 
     int year;
-    Branch branch;
+    BranchEnum branch;
     int rollno;
 
-    public StudentId(int year, Branch branch, int rollno) {
+    public StudentId(int year, BranchEnum branch, int rollno) {
         this.year = year;
         this.branch = branch;
         this.rollno = rollno;
@@ -18,7 +18,7 @@ public class StudentId {
         return year;
     }
 
-    public Branch getBranch() {
+    public BranchEnum getBranch() {
         return branch;
     }
 

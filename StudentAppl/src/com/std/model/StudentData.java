@@ -2,21 +2,26 @@ package com.std.model;
 
 public class StudentData {
     private StudentId studentId;
-    private String cgpa;
+    private float cgpa;
 
     public StudentData(StudentId studentId) {
         this.studentId = studentId;
+    }
+
+    public StudentData(StudentId studentId, float cgpa) {
+        this.studentId = studentId;
+        cgpa = cgpa;
     }
 
     public StudentId getStudentId() {
         return studentId;
     }
 
-    public String getCgpa() {
+    public float getCgpa() {
         return cgpa;
     }
 
-    public void setCgpa(String cgpa) {
+    public void setCgpa(float cgpa) {
         this.cgpa = cgpa;
     }
 
