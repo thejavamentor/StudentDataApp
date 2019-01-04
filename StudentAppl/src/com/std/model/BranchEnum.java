@@ -26,4 +26,10 @@ public enum BranchEnum {
         return null;
     }
 
+    @Override
+    public String toString() {
+        return "BranchEnum{" +
+                   "branch " + name() +
+                '}';
+    }
 }

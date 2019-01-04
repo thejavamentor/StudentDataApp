@@ -47,4 +47,14 @@ public class StudentId {
     public int hashCode() {
         return Objects.hash(getYear(), getBranchCode(), getRollno());
     }
+
+    @Override
+    public String toString() {
+        return "StudentId{" +
+                "year=" + year +
+                ", branch=" + branch.getBranchName() +
+                ", branch code=" + branch.getBranchCode() +
+                ", rollno=" + rollno +
+                '}';
+    }
 }

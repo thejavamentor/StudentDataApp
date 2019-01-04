@@ -15,11 +15,16 @@ public class StudentServiceImpl implements  StudentService {
 
     @Override
     public void insertStudentRec(StudentHash records, String studentId, float CGPA) {
+        if(StringUtility.isNullOrEmpty(studentId)){
+            System.out.println("Student id can be null ");
+            return;
+        }
         String arr[] = StringUtility.splitString(studentId);
-        BranchEnum branch = BranchEnum.getBranch(arr[0]);
-        StudentId studentId1 = new StudentId(Integer.parseInt(arr[0]), branch, Integer.parseInt(arr[2]));
-        StudentData student1 = new StudentData(studentId1,CGPA);
-        records.insertStudentRec(studentId1,student1);
+        BranchEnum branch = BranchEnum.getBranch(arr[1]);
+        StudentId studentIdObj = new StudentId(Integer.parseInt(arr[0]), branch, Integer.parseInt(arr[2]));
+        StudentData student1 = new StudentData(studentIdObj,CGPA);
+        records.insertStudentRec(studentIdObj,student1);
+        System.out.println("Student data inserted : "+ studentId);
     }
 
     @Override
@@ -40,5 +45,11 @@ public class StudentServiceImpl implements  StudentService {
     @Override
     public void destroyHash(StudentHash records) {
 
+    }
+
+    // These are the addition method required to retrieve the data
+    @Override
+    public StudentData getStudentDataById(StudentHash records, String studentId){
+        return records.getStudentDataById(studentId);
     }
 }
