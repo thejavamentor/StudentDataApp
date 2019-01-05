@@ -1,30 +1,51 @@
 package com.std.model;
 
+import com.stud.info.StringUtility;
+
 public class StudentData {
-    private StudentId studentId;
-    private String cgpa;
+    private StudentId studentIdObj;
+    private String acutalStudentId;
+    private float cgpa;
 
     public StudentData(StudentId studentId) {
-        this.studentId = studentId;
+        this.studentIdObj = studentId;
+        this.acutalStudentId = StringUtility.getActualStudentIdFrom(studentIdObj);
+    }
+
+    public StudentData(String studentId2, float cgpa) {
+        this.acutalStudentId = studentId2;
+        this.studentIdObj = StringUtility.getStudentIdObjectFrom(studentId2);
+        this.cgpa = cgpa;
+    }
+
+    public StudentData(StudentId studentIdObj, float cgpa) {
+        this.studentIdObj = studentIdObj;
+        this.acutalStudentId = StringUtility.getActualStudentIdFrom(studentIdObj);
+        this.cgpa = cgpa;
     }
 
     public StudentId getStudentId() {
-        return studentId;
+        return studentIdObj;
     }
 
-    public String getCgpa() {
+    public float getCgpa() {
         return cgpa;
     }
 
-    public void setCgpa(String cgpa) {
+    public void setCgpa(float cgpa) {
         this.cgpa = cgpa;
+    }
+
+    public StudentId getStudentIdObj() {
+        return studentIdObj;
     }
 
     @Override
     public String toString() {
         return "StudentData{" +
-                "studentId=" + studentId +
-                ", cgpa='" + cgpa + '\'' +
+                "studentIdObj=" + studentIdObj +
+                ", acutalStudentId='" + acutalStudentId + '\'' +
+                ", cgpa=" + cgpa +
                 '}';
     }
 }

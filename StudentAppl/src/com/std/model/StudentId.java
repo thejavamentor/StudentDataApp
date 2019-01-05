@@ -5,10 +5,10 @@ import java.util.Objects;
 public class StudentId {
 
     int year;
-    Branch branch;
+    BranchEnum branch;
     int rollno;
 
-    public StudentId(int year, Branch branch, int rollno) {
+    public StudentId(int year, BranchEnum branch, int rollno) {
         this.year = year;
         this.branch = branch;
         this.rollno = rollno;
@@ -18,7 +18,7 @@ public class StudentId {
         return year;
     }
 
-    public Branch getBranch() {
+    public BranchEnum getBranch() {
         return branch;
     }
 
@@ -46,5 +46,15 @@ public class StudentId {
     @Override
     public int hashCode() {
         return Objects.hash(getYear(), getBranchCode(), getRollno());
+    }
+
+    @Override
+    public String toString() {
+        return "StudentId{" +
+                "year=" + year +
+                ", branch=" + branch.getBranchName() +
+                ", branch code=" + branch.getBranchCode() +
+                ", rollno=" + rollno +
+                '}';
     }
 }
